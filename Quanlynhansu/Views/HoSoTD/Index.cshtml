@@ -1,0 +1,149 @@
+﻿@model IEnumerable<Quanlynhansu.Models.HOSOTD>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+    function toggle(source) {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] != source)
+                checkboxes[i].checked = source.checked;
+        }
+    }
+
+</script>
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">HỒ SƠ TUYỂN DỤNG</h3>
+            <div class="input-group input-group-sm" style="width: 200px;margin-left:78%">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-tools" style="margin-top:-3%">
+
+                <button type="button" class="btn btn-tool col-md-2" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-striped projects" id="example1">
+                @using (Html.BeginForm("Index", "HopDong", FormMethod.Get, new { @class = "form-inline" }))
+                {
+                    <thead>
+                        <tr>
+                            <th width="20px"><input type="checkbox" onclick="toggle(this);" /> </th>
+                            <th style="width: 170px">
+                                HỌ TÊN
+                            </th>
+                            <th style="width: 100px">
+                                GIỚI TÍNH
+                            </th>
+                            <th style="width: 100px">
+                                EMAIL
+                            </th>
+                            <th style="width: 100px">
+                                CCCD
+                            </th>
+                            <th style="width: 110px">
+                                NGÀY SINH
+                            </th>
+                            <th style="width: 100px">
+                                VỊ TRÍ TD
+                            </th>
+                            @*
+
+                            @* <th style="width: 90px">
+            FILE CV
+        </th>*@
+                            <th style="width: 100px">
+                                Trạng thái
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HOTEN)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.GIOITINH)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CCCD)
+                                </td>
+                                <td>
+                                    @Html.FormatValue(@item.NGAYSINH, "{0:dd/MM/yyyy}")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VITRITUYEN.TENVTTD)
+                                </td>
+
+                                @*<td>
+                                    <a href="@Url.Action("Download", "Home_TD", new { id = item.MAHS })">@item.FileCV</a>
+                                </td>*@
+                                @if (item.TRANGTHAI == 1)
+                                {
+                                    <td>
+                                        <span style=" color: blue; border: 0px; border-radius: 5%">Chờ duyện</span>
+                                    </td>
+                                }
+                                else if (item.TRANGTHAI == 2)
+                                {
+                                    <td><span style=" color: green; border: 0px; border-radius: 5% ">Được nhận</span></td>
+
+                                }
+                                else if(item.TRANGTHAI == 3)
+                                {
+                                    <td><span style="color: red;  border: 0px; border-radius: 5% ">Bị loại</span></td>
+
+                                }
+                                <td class="text-right py-0 align-middle">
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="@Url.Action("Details", new { id = item.MAHS })" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                        <a href="@Url.Action("Nhan", new { id = item.MAHS })" class="btn btn-danger">Nhận</a>
+                                        <a href="@Url.Action("Loai", new { id = item.MAHS })" class="btn btn-primary">Loại</a>
+                                    </div>
+
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                }
+            </table>
+            @*<div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0">
+                    <li class="page-item">@Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))</li>
+                </ul>
+            </div>*@
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</section>
+

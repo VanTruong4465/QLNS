@@ -1,0 +1,78 @@
+﻿@model Quanlynhansu.Models.KHENTHUONG
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal content">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Chỉnh sửa</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MAKTH)
+        <div class="card-body form-group">
+            <div class="form-group">
+                <label for="inputName"> Nhân viên khen thưởng</label>
+                @Html.DropDownList("MANV", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MANV, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label for="inputName">Ngày khen thưởng</label>
+                @Html.EditorFor(model => model.NGAYQUYETDINH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NGAYQUYETDINH, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Hình thức khen thưởng</label>
+                @Html.EditorFor(model => model.HINHTHUC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HINHTHUC, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Loại khen thưởng</label>
+                @Html.EditorFor(model => model.LOAI, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LOAI, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="inputName">Lý do khen thưởng</label>
+                @Html.EditorFor(model => model.LYDO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LYDO, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Nội dung khen thưởng</label>
+                @Html.EditorFor(model => model.NOIDUNG, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NOIDUNG, "", new { @class = "text-danger" })
+            </div>
+        </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+
+        <div class="row form-group">
+            <div class="col-12">
+                <a href="@Url.Action("Index","KhenThuong")" class="btn btn-secondary">Cancel</a>
+                <input type="submit" value="Save" class="btn btn-success float-right">
+            </div>
+
+        </div>
+
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

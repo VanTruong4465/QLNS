@@ -1,0 +1,52 @@
+﻿@model Quanlynhansu.Models.DANTOC
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal content">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Thêm dân tộc</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="card-body form-group">
+                <div class="form-group">
+                    <label for="inputName"> Tên chức vụ</label>
+                    @Html.EditorFor(model => model.TENDT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TENDT, "", new { @class = "text-danger" })
+                </div>
+                
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+
+        <div class="row form-group">
+            <div class="col-12">
+                <a href="@Url.Action("Index","DanToc")" class="btn btn-secondary">Cancel</a>
+                <input type="submit" value="Save" class="btn btn-success float-right">
+            </div>
+
+        </div>
+
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

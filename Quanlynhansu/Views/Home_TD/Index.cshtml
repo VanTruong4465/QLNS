@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Quanlynhansu.Models.VITRITUYEN>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_TD.cshtml";
+}
+
+<section class="client_section layout_padding">
+    <div class="container">
+        <div class="heading_container justify-content-center">
+            <h2>
+                Tuyển dụng
+            </h2>
+
+        </div>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="container">
+            <a href="@Url.Action("Details","Home_TD",new { id = item.MAVTTD })">
+                <div class="client_box">
+                    <div class="detail_box" onclick="">
+                        <div class="img_box">
+                            <img src="~/Image/CITY.jpg">
+                        </div>
+                        <div style="margin-top: 2%">
+                            <p>
+                                @item.TENVTTD
+                            </p>
+                            <p><i class="fas fa-money-bill-wave "> &nbsp; @item.LUONG</i></p>
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</section>
+
+
+
+
+

@@ -1,0 +1,149 @@
+﻿@using Quanlynhansu.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<Quanlynhansu.Models.HOPDONG>
+@helper Truncate(string s, int length)
+{
+    if (s.Length < length)
+    {
+        @s
+    }
+    else
+    {
+        @s.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    function toggle(source) {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] != source)
+                checkboxes[i].checked = source.checked;
+        }
+    }
+  
+</script>
+<div class="card-header">
+    <a style="border-radius: 10%" href="@Url.Action("Create","HopDong")">Thêm hợp đồng</a>
+</div>
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Hơp Đồng</h3>
+            @using (Html.BeginForm("Index", "HopDong", FormMethod.Get, new { @class = "form-inline" }))
+            {
+
+                <div class="input-group input-group-sm" style="width: 500px;margin-left:60%">
+                    <div>@Html.DropDownList("list", new SelectList(ViewBag.list, "ID", "Name"), new { @class = "h-100 form - control" })</div>
+                    <input type="text" value="@ViewBag.Keyword" name="searchString" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-default">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            }
+            <div class="card-tools" style="margin-top:-3%">
+
+                <button type="button" class="btn btn-tool col-md-2" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-striped projects" id="example1">
+                @using (Html.BeginForm("Index", "HopDong", FormMethod.Get, new { @class = "form-inline" }))
+                {
+                    <thead>
+                        <tr>
+                            <th width="100px"><input type="checkbox" onclick="toggle(this);" /> All</th>
+                            <th style="width: 170px">
+                                NHÂN VIÊN
+                            </th>
+                            <th>
+                                LOẠI HƠP ĐỒNG
+                            </th>
+                            <th>
+                                TỪ NGÀY
+                            </th>
+                            <th>
+                                ĐẾN NGÀY
+                            </th>
+                            <th>
+                                NGÀY KÝ
+                            </th>
+                            <th>
+                                HỆ SỐ LƯƠNG
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NHANVIEN.HOTEN)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LOAIHD)
+                                </td>
+                                <td>
+                                    @Html.FormatValue(@item.TUNGAY, "{0:dd/MM/yyyy}")
+                                </td>
+                                <td>
+                                    @Html.FormatValue(@item.DENNGAY, "{0:dd/MM/yyyy}")
+                                </td>
+                                <td>
+                                    @Html.FormatValue(@item.NGAYKY, "{0:dd/MM/yyyy}")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HESOLUONG)
+                                </td>
+                                <td class="project-actions text-right">
+                                    <a class="btn btn-primary btn-sm" href="@Url.Action("Details", new { id = item.MAHD })">
+                                        <i class="fas fa-folder">
+                                        </i>
+                                        View
+                                    </a>
+                                    <a class="btn btn-info btn-sm" href="@Url.Action("Edit", new { id = item.MAHD })">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Edit
+                                    </a>
+                                    @*<a class="btn btn-danger btn-sm" href="@Url.Action("Delete", new { id = item.MAHD })">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Delete
+                                        </a>*@
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                }
+            </table>
+            <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0">
+                    <li class="page-item">@Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))</li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</section>

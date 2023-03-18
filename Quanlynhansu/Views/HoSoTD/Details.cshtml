@@ -1,0 +1,243 @@
+﻿@model Quanlynhansu.Models.HOSOTD
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Chi tiết</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="inputName">Họ tên: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.HOTEN)</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Ngày sinh: </label>&nbsp;&nbsp;<span>@Html.FormatValue(Model.NGAYSINH, "{0:dd/MM/yyyy}")</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Giới tính: </label>&nbsp;&nbsp;<span> @Html.DisplayFor(model => model.GIOITINH)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> CCCD: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.CCCD)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Số điện thoại: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.SDT)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Vị trí tuyển dụng: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.VITRITUYEN.TENVTTD)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Tôn giáo: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.TONGIAO.TENTG)</span>
+
+                    </div>
+
+                </div>
+
+                <!-- /.card-body -->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body ">
+                    <div class="form-group">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Email: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.Email)</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Dân Tộc: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.DANTOC.TENDT)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Trình độ: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.TRINHDO.TENTD)</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> File CV: </label>&nbsp;&nbsp; <a href="@Url.Action("Download", "Home_TD", new { id = Model.MAHS })">@Model.FileCV</a>
+
+                    </div>
+                    
+                    @if (Model.TRANGTHAI == 1)
+                    {
+                        <div class="form-group">
+                            <label for="inputName"> Trạng thái: </label>&nbsp;&nbsp;<button style="background-color:cornflowerblue; color: white;border: 0px;border-radius:50%">Chờ duyện</button>
+
+                        </div>
+                    }
+                    else if (Model.TRANGTHAI == 2)
+                    {
+                        <div class="form-group">
+                            <label for="inputName">  Trạng thái: </label>&nbsp;&nbsp;<button style="background-color:green">Được nhận</button>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <label for="inputName">  Trạng thái: </label>&nbsp;&nbsp;<button style="background-color:red">Bị loại</button>
+
+                        </div>
+                    }
+                    
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a href="@Url.Action("Index","HoSoTD")" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+</section>
+
+
+
+@*<div>
+    <h4>HOSOTD</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HOTEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOTEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOITINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOITINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYSINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYSINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCCD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYTD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYTD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRANGTHAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRANGTHAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CVContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CVContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileCV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileCV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DANTOC.TENDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DANTOC.TENDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TONGIAO.TENTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TONGIAO.TENTG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRINHDO.TENTD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRINHDO.TENTD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VITRITUYEN.TENVTTD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VITRITUYEN.TENVTTD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAHS }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+*@

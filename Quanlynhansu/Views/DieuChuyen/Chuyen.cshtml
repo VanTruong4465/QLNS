@@ -1,0 +1,135 @@
+﻿@model Quanlynhansu.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Chuyen", "DieuChuyen", FormMethod.Post, new
+{
+    @enctype =
+"multipart/form-data"
+}))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal content">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Chỉnh sửa</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MANV)
+        <div class="card-body form-group d-flex flex-column align-items-center">
+
+            <div class="form-group">
+                <input type="hidden" size="70" name="MANV" value="@Model.MANV" readonly />
+
+                <label for="inputName"> Mã nhân viên: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.MANV)</span>
+
+            </div>
+
+            <div class="form-group">
+                <span> <img src="~/Image/@Model.HINHANH" style="width: 80px; height: 100px" /></span>
+
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Nhân viên: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.HOTEN)</span>
+
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Giới tính: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.GIOITINH)</span>
+
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Ngày sinh: </label>&nbsp;&nbsp;<span>@Html.FormatValue(Model.NGAYSINH, "{0:dd/MM/yyyy}")</span>
+
+            </div>
+            <div class="form-group">
+                <label for="inputName"> CCCD </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.CCCD)</span>
+
+            </div>
+
+
+
+
+            <div class="form-group d-flex justify-content-around " style="width:100%">
+                <div>
+                    <label for="inputName"> Hiện tại: </label>&nbsp;&nbsp;<div class="form-control" style="width:230px">@Html.DisplayFor(model => model.BOPHAN.TENBP)</div>
+                </div>
+                <div class="">
+
+                    <input type="hidden" value="Chuyển" class="btn btn-success ">
+                </div>
+                <div>
+
+                    <label for="inputName"> Chuyển đến: </label>
+                    <div>
+                        <div class="form-group">
+                            
+                                    
+                            @Html.DropDownList("MABP", null, htmlAttributes: new { @class = "form-control" })
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+           @* <div class="form-group d-flex justify-content-around " style="width:100%">
+                <div>
+                    <label for="inputName"> Hiện tại: </label>&nbsp;&nbsp;<div class="form-control" style="width:230px">@Html.DisplayFor(model => model.PHONGBAN.TENPB)</div>
+                </div>
+                
+                <div>
+
+                    <label for="inputName"> Chuyển đến: </label>
+                    <div>
+                        <div class="form-group">
+                            @{ Quanlynhansu.Models.QLNSEntities db = new Quanlynhansu.Models.QLNSEntities();
+                                var ns = db.PHONGBANs.ToList();
+                                foreach (var itmee in ns.Where(x => x.MABP == Model.MABP))
+                                {
+                                    <p>@itmee.TENPB</p>
+                                }
+                            }
+                                @Html.DropDownList("MAPB", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                    </div>
+                </div>
+
+            </div>*@
+            <div class="">
+
+                <input type="submit" value="Chuyển" class="btn btn-success ">
+            </div>
+
+        </div>
+            <!-- /.card -->
+        </div>
+
+        <div class="row form-group">
+            <div class="col-12">
+                <a href="@Url.Action("Index","DieuChuyen")" class="btn btn-secondary">Cancel</a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+

@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Quanlynhansu.Models.VITRITUYEN>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout_TD.cshtml";
+}
+@foreach (var item in Model)
+{
+    <section class="about_section ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xl-4">
+                    <div class="img-box">
+                        <img src="~/Image/CITY.jpg" alt="" />
+                    </div>
+                </div>
+                <div class="col-md-5 col-xl-8">
+                    <div class="">
+                        <div class=" justify-content-end">
+                            <h2>
+                                @item.TENVTTD
+                            </h2>
+                        </div>
+                        <p>Mức lương: <i class="fas fa-money-bill-wave "> &nbsp; @item.LUONG</i></p><br />
+                        <h3>Mô tả công việc</h3>
+                        <p>@Html.Raw(item.NOIDUNG)</p><br />
+                        <h3>Kỹ năng & Chuyên môn:</h3>
+                        <p>
+                            @Html.Raw(item.YEUCAU)
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        @{ string email = "";}
+        @if (Session["NguoiDung"] == null)
+        {
+            <a href="@Url.Action("Login_TD","UserND")" class="nav-link float-right" style="border-radius:5%;color:white;background-color: red;width:170px">Ứng tuyển ngay</a>
+        }
+        else
+        {
+            email = ((Quanlynhansu.Models.NGUOIDUNG)Session["NguoiDung"]).Email.ToString();
+            <a href="#" class="nav-link float-right" data-toggle="modal" data-target="#sign-out" style="border-radius:5%;color:white;background-color: red;width:170px">Ứng tuyển ngay</a>
+        }
+        <div class="modal fade text-center" id="sign-out">
+            <div class=" modal-dialog-centered" style="width:900px;margin-left:16%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Bạn đang ứng tuyển vị trí <span>@item.TENVTTD</span> tại công ty</h4>
+                        <a class="close" href="@Url.Action("Details","Home_TD",new { id = item.MAVTTD })">×</a>
+                    </div>
+                    @*<div class="modal-body">
+                            Bạn muốn xuất file gì?
+                        </div>*@
+                    <div class="modal-footer ">
+                        <div style="width:100%;">
+
+                            @using (Html.BeginForm("AddTD", "Home_TD", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+
+
+                                <form action="AddTD" method="post" name="AddTD">
+
+                                    <div class="form-group">
+                                        <label for="inputName" class="control-label float-left"> Họ tên</label>
+                                        <input name="name" class="form-control" placeholder="Họ tên" />
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label for="inputName" class="control-label float-left"> Email</label>
+                                        <input class="form-control" name="EMAIL" value="@email" />
+
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="inputName" class="control-label float-left">CCCD</label>
+                                        <input class="form-control" name="CCCD" placeholder="CCCD" />
+
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="inputName" class="control-label float-left"> Số điện thoại</label>
+                                        <input class="form-control" name="SDT" placeholder="Số điện thoại" />
+
+                                    </div>
+                                    <div class="form-group float-left">
+                                        <label for="inputName" class="control-label float-left">CV</label>
+                                        <input class="form-control" type="file" name="pdfFile" />
+
+                                    </div><br />
+                                    <div class="row form-group" style="margin-top: 10%">
+                                        <div class="col-12">
+                                            <input type="submit" value="Gửi" class="btn btn-success ">
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

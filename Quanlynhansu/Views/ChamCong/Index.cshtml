@@ -1,0 +1,260 @@
+﻿@using Quanlynhansu.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<Quanlynhansu.Models.CHAMCONG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+    function toggle(source) {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] != source)
+                checkboxes[i].checked = source.checked;
+        }
+    }
+    
+</script>
+<style>
+    table, th, td, tr {
+        border: 1px solid black;
+    }
+
+    .card-body {
+        overflow: auto;
+    }
+</style>
+<div class="card-header">
+    <a style="border-radius: 10%" href="@Url.Action("Create","ChamCong")">Thêm</a>
+</div>
+
+<section class="content">
+    <h1>@ViewBag.s</h1>
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Thôi việc</h3>
+            @using (Html.BeginForm("Index", "ChamCong", FormMethod.Get, new { @class = "form-inline" }))
+            {
+
+                <div class="input-group input-group-sm" style="width: 500px;margin-left:60%">
+                    <div>@Html.DropDownList("list", new SelectList(ViewBag.list, "ID", "Name"), new { @class = "h-100 form - control" })</div>
+                    <input type="text" value="@ViewBag.Keyword" name="searchString" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-default">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            }
+            <div class="card-tools" style="margin-top:-3%">
+
+                <button type="button" class="btn btn-tool col-md-2" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-striped projects" id="example1" style="border:1px">
+                <thead>
+                    <tr>
+                        <th width="100px"><input type="checkbox" onclick="toggle(this);" /> All</th>
+                        <th>
+                            MACC
+                        </th>
+                        <th>
+                            Tên nhân viên
+                        </th>
+                        <th>
+                            1
+                        </th>
+                        <th>
+                            2
+                        </th>
+                        <th>
+                            3
+                        </th>
+                        <th>
+                            4
+                        </th>
+                        <th>
+                            5
+                        </th>
+                        <th>
+                            6
+                        </th>
+                        <th>
+                            7
+                        </th>
+                        <th>
+                            8
+                        </th>
+                        <th>
+                            9
+                        </th>
+                        <th>
+                            10
+                        </th>
+                        <th>
+                            11
+                        </th>
+                        <th>
+                            12
+                        </th>
+                        <th>
+                            13
+                        </th>
+                        @for (int i = 1; i < Model.Count; i++)
+                        {
+                            <th>
+                                @i
+                            </th>
+                        }
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MACC)
+                        </td>
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MANV)
+                        </td>
+                        <th>
+
+                            @Html.DisplayFor(modelItem => item.D1)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D2)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D3)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D4)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D5)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D6)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D7)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D8)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D9)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D10)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D11)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D12)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D13)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D14)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D16)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D16)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D17)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D18)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D19)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D20)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D21)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D22)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D23)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D24)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D25)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D26)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D27)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D28)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D29)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D30)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.D31)
+                        </th>
+                       
+
+                        <td class="text-right py-0 align-middle">
+                            <div class="btn-group btn-group-sm">
+                                <a href="@Url.Action("Details", new { id = item.MACC })" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                <a href="@Url.Action("Delete", new { id = item.MACC })" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                <a href="@Url.Action("Edit", new { id = item.MACC })" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                            </div>
+
+                        </td>
+
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="card-footer clearfix">
+            <ul class="pagination pagination-sm m-0 float-right">
+                <li class="page-item">@Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))</li>
+            </ul>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>
+
+

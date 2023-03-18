@@ -1,0 +1,128 @@
+﻿@using Quanlynhansu.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<Quanlynhansu.Models.KHENTHUONG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    function toggle(source) {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] != source)
+                checkboxes[i].checked = source.checked;
+        }
+    }
+    
+</script>
+<div class="card-header">
+    <a style="border-radius: 10%" href="@Url.Action("Create","KhenThuong")">Thêm khen thưởng</a>
+</div>
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Khen Thưởng</h3>
+            @using (Html.BeginForm("Index", "KhenThuong", FormMethod.Get, new { @class = "form-inline" }))
+            {
+
+                <div class="input-group input-group-sm" style="width: 500px;margin-left:60%">
+                    <div>@Html.DropDownList("list", new SelectList(ViewBag.list, "ID", "Name"), new { @class = "h-100 form - control" })</div>
+                    <input type="text" value="@ViewBag.Keyword" name="searchString" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-default">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            }
+            <div class="card-tools" style="margin-top:-3%">
+
+                <button type="button" class="btn btn-tool col-md-2" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-striped projects" id="example1">
+                <thead>
+                    <tr>
+                        <th width="100px"><input type="checkbox" onclick="toggle(this);" /> All</th>
+                        <th>
+                            TÊN NHÂN VIÊN
+                        </th>
+                        <th>
+                            NGÀY K/THƯỞNG
+                        </th>
+                        <th>
+                            HÌNH THỨC
+                        </th>
+                        <th>
+                            LÝ DO
+                        </th>
+                        <th>
+                            NỘI DUNG
+                        </th>
+                        <th>
+                            LOẠI
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NHANVIEN.HOTEN)
+                            </td>
+                            <td>
+                                @Html.FormatValue(@item.NGAYQUYETDINH, "{0:dd/MM/yyyy}")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HINHTHUC)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LYDO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NOIDUNG)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LOAI)
+                            </td>
+
+                            <td class="text-right py-0 align-middle">
+                                <div class="btn-group btn-group-sm">
+                                    <a href="@Url.Action("Details", new { id = item.MAKTH })" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                    <a href="@Url.Action("Delete", new { id = item.MAKTH })" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                    <a href="@Url.Action("Edit", new { id = item.MAKTH })" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                </div>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <div class="card-footer clearfix">
+                    <ul class="pagination pagination-sm m-0 ">
+                        <li class="page-item">@Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))</li>
+                    </ul>
+                </div>
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>
+
