@@ -1,0 +1,92 @@
+﻿@model Quanlynhansu.Models.NGUOIDUNG
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/Layout_TD.cshtml";
+}
+
+
+<section class="contact_section layout_padding">
+    <div class="container ">
+        <div class="heading_container justify-content-center">
+            <h2 class="">
+                Đăng ký
+            </h2>
+        </div>
+    </div>
+    <div class="container" style="margin-left: 12%">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label class="control-label" style="margin-left: 5%">Tên đăng nhập:</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TenND, new { htmlAttributes = new { @class = "form-control", @Required = "Required" } })
+                            @Html.ValidationMessageFor(model => model.TenND, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" style="margin-left: 5%">Họ tên người dùng:</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Hoten, new { htmlAttributes = new { @class = "form-control" , @Required = "Required" } })
+                            @Html.ValidationMessageFor(model => model.Hoten, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label " style="margin-left: 5%">Email:</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @Required = "Required" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label " style="margin-left: 5%">Dịa chỉ:</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Diachi, new { htmlAttributes = new { @class = "form-control" , @Required = "Required" } })
+                            @Html.ValidationMessageFor(model => model.Diachi, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label " style="margin-left: 5%">Số điện thoại:</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" , @Required = "Required" } })
+                            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label " style="margin-left: 5%">Mật khẩu:</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-control" , @Required = "Required" } })
+                            @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label " style="margin-left: 5%">Nhập lại mật khẩu:</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="password" id="Pass2" name="Pass2" required/>
+                            <span style="color:red;">@ViewData["1"]</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="d-flex  mt-4 ">
+                            <button type="submit" class="btnbtn-block" style="margin-left:22%">Register</button>
+                        </div>
+                    </div>
+                </div>
+                }
+
+            </div>
+           
+        </div>
+    </div>
+</section>
+
+<div>
+    @Html.ActionLink("Back to List", "Login_TD","UserND")
+</div>

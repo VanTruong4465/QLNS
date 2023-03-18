@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Login_TD";
+    Layout = "~/Views/Shared/Layout_TD.cshtml";
+}
+
+
+<section class="contact_section layout_padding">
+    <div class="container ">
+        <div class="heading_container justify-content-center" style="text-align:center">
+            <h2 class="">
+                Đăng Nhập
+            </h2>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto d-flex justify-content-center flex-column">
+                <form action="Login_TD" method="post" name="Login_TD" class="d-flex justify-content-center flex-column">
+                    <div>
+                        <input type="email" placeholder="Email" id="email" name="email" class="form-control" />
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Pasword" id="password" name="password" class="form-control" />
+                    </div>
+
+                    <div class="d-flex  mt-4 ">
+
+                        <button type="submit" class="btnbtn-block">Sign In</button>
+
+                    </div>
+                </form>
+                <a href="@Url.Action("Register","UserND")"> Register</a>
+            </div>
+            
+        </div>
+    </div>
+</section>

@@ -1,0 +1,111 @@
+﻿@model Quanlynhansu.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Chi tiết</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="inputName"> Mã nhân viên: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.MANV)</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Họ tên nhân viên: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.HOTEN)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Hình Ảnh: </label>&nbsp;&nbsp;<span> <img src="~/Image/@Model.HINHANH" style="width: 80px; height: 100px" /></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Giới tính: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.GIOITINH)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Ngày sinh: </label>&nbsp;&nbsp;<span>@Html.FormatValue(Model.NGAYSINH, "{0:dd/MM/yyyy}")</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> CCCD </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.CCCD)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Địa chỉ: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.DIACHI)</span>
+
+                    </div>
+                   
+                </div>
+                
+                <!-- /.card-body -->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body ">
+                    <div class="form-group">
+                      
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Điện thoại: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.DIENTHOAI)</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> giới tính: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.GIOITINH)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Bộ phận: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.BOPHAN.TENBP)</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Chức vụ: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.CHUCVU.TENCV)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Dân tộc: </label>&nbsp;&nbsp;<span> @Html.DisplayFor(model => model.DANTOC.TENDT)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Phong ban: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.PHONGBAN.TENPB)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Tôn giáo: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.TONGIAO.TENTG)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Trình độ: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.TRINHDO.TENTD)</span>
+
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a href="@Url.Action("Index","NhanVien")" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+</section>
+

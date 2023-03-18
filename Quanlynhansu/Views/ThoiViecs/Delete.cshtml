@@ -1,0 +1,67 @@
+﻿@model Quanlynhansu.Models.THOIVIEC
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Xoá </h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="inputName"> Mã nhân viên</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.MANV)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Tên nhân viên</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.NHANVIEN.HOTEN)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Ngày nộp đơn</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.NGAYNOPDON)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Chức vụ</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.NHANVIEN.CHUCVU.TENCV)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Ngày thôi việc</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.NGAYTV)" readonly>
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Lý do</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.LYDOTV)" readonly>
+            </div>
+
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+    <div class="row form-group">
+        <div class="col-12">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <a href="@Url.Action("Index","ThoiViecs")" class="btn btn-secondary">Cancel</a>
+                    <input type="submit" value="Delete" class="btn btn-success float-right">
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,60 @@
+﻿@model Quanlynhansu.Models.KYLUAT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Chi tiết</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="inputName"> Mã kỷ luật</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.MAKL)">
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Nhân viên kỷ luật</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.NHANVIEN.HOTEN)">
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Ngày kỷ luật</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.NGAYKL)">
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Loại kỷ luật</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.LOAI)">
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Hình thức kỷ luật</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.HINHTHUCKL)">
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Lý do kỷ luật</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.LOAI)">
+            </div>
+            <div class="form-group">
+                <label for="inputName"> Nội dung kỷ luật</label>
+                <input type="text" id="inputName" class="form-control" value="@Html.DisplayFor(model => model.NOIDUNG)">
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+
+    <div class="row">
+        <div class="col-12">
+            <a href="@Url.Action("Index","KyLuat")" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+</section>

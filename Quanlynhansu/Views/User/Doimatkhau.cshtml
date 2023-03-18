@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Doimatkhau";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content" >
+    
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">ĐỔI MẬT KHẨU</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card ">
+                    <div class="card-body form-group">
+                        <form action="Doimatkhau" method="post" name="Login" style="width:500px; margin-left:30%">
+                            <img src="~/Image/@Session["Hinh"].ToString()" class="img-circle" alt="User Image" style="margin-left:30%;width:150px;height:150px"><br /><br />
+                            <div>
+                                <span>Mật khẩu hiện tại</span>
+                                <input class="form-control" type="password" name="password_ht" id="password_ht" value="@ViewBag.tt" required placeholder="Password"><span>@ViewData["1"]</span>
+                            </div>
+                            <div>
+                                <span>Mật khẩu mới</span>
+                                <input class="form-control" type="password" name="password1" id="password1" required placeholder="Password">
+                            </div>
+                            <div>
+                                <span>Xác nhận mật khẩu</span>
+                                <input class="form-control" type="password" name="password2" id="password2" required placeholder="Password"><span>@ViewData["2"]</span>
+                            </div>
+                            <br />
+                            <div class="col-4 ">
+                                <button type="submit" class="btn btn-primary btn-block" style="margin-left:100%">Xác nhận</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+          
+        </div>
+    
+</section>

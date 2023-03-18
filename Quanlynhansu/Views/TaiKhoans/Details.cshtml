@@ -1,0 +1,73 @@
+﻿@model Quanlynhansu.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body ">
+
+                    <div class="form-group text-center">
+                        <img src="~/Image/@Model.NHANVIEN.HINHANH" style="width: 150px; height: 150px;border-radius:50%" /><br />
+                        <b style="text-align:center">Hình ảnh</b>
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </div>
+        <div class="col-md-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Chi tiết</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="inputName"> Tên: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.NHANVIEN.HOTEN)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Email: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.Email)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Mật khẩu: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.MatKhau)</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName"> Quyền: </label>&nbsp;&nbsp;<span>@Html.DisplayFor(model => model.Quyen)</span>
+
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <a href="@Url.Action("Index","TaiKhoans")" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+</section>
