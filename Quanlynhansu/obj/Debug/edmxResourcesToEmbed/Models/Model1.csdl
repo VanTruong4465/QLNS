@@ -1,0 +1,889 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLNSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QLNSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BANGCONGs" EntityType="QLNSModel.BANGCONG" />
+    <EntitySet Name="BAOHIEMs" EntityType="QLNSModel.BAOHIEM" />
+    <EntitySet Name="BOPHANs" EntityType="QLNSModel.BOPHAN" />
+    <EntitySet Name="CHAMCONGs" EntityType="QLNSModel.CHAMCONG" />
+    <EntitySet Name="CHUCVUs" EntityType="QLNSModel.CHUCVU" />
+    <EntitySet Name="DANTOCs" EntityType="QLNSModel.DANTOC" />
+    <EntitySet Name="HESOLUONGs" EntityType="QLNSModel.HESOLUONG" />
+    <EntitySet Name="HOPDONGs" EntityType="QLNSModel.HOPDONG" />
+    <EntitySet Name="HOSOTDs" EntityType="QLNSModel.HOSOTD" />
+    <EntitySet Name="KHENTHUONGs" EntityType="QLNSModel.KHENTHUONG" />
+    <EntitySet Name="KQTDs" EntityType="QLNSModel.KQTD" />
+    <EntitySet Name="KYLUATs" EntityType="QLNSModel.KYLUAT" />
+    <EntitySet Name="LUONG1" EntityType="QLNSModel.LUONG1" />
+    <EntitySet Name="NGUOIDUNGs" EntityType="QLNSModel.NGUOIDUNG" />
+    <EntitySet Name="NHANVIENs" EntityType="QLNSModel.NHANVIEN" />
+    <EntitySet Name="NV_PHUCAP" EntityType="QLNSModel.NV_PHUCAP" />
+    <EntitySet Name="PHONGBANs" EntityType="QLNSModel.PHONGBAN" />
+    <EntitySet Name="PHUCAPs" EntityType="QLNSModel.PHUCAP" />
+    <EntitySet Name="QUATRINHCONGTACs" EntityType="QLNSModel.QUATRINHCONGTAC" />
+    <EntitySet Name="QUATRINHLENLUONGs" EntityType="QLNSModel.QUATRINHLENLUONG" />
+    <EntitySet Name="TaiKhoans" EntityType="QLNSModel.TaiKhoan" />
+    <EntitySet Name="THOIVIECs" EntityType="QLNSModel.THOIVIEC" />
+    <EntitySet Name="TONGIAOs" EntityType="QLNSModel.TONGIAO" />
+    <EntitySet Name="TRINHDOes" EntityType="QLNSModel.TRINHDO" />
+    <EntitySet Name="VITRITUYENs" EntityType="QLNSModel.VITRITUYEN" />
+    <AssociationSet Name="FK_BANGCONG_NHANVIEN" Association="QLNSModel.FK_BANGCONG_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="BANGCONG" EntitySet="BANGCONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LUONG1_BANGCONG" Association="QLNSModel.FK_LUONG1_BANGCONG">
+      <End Role="BANGCONG" EntitySet="BANGCONGs" />
+      <End Role="LUONG1" EntitySet="LUONG1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BAOHIEM_NHANVIEN" Association="QLNSModel.FK_BAOHIEM_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="BAOHIEM" EntitySet="BAOHIEMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KQTD_BOPHAN" Association="QLNSModel.FK_KQTD_BOPHAN">
+      <End Role="BOPHAN" EntitySet="BOPHANs" />
+      <End Role="KQTD" EntitySet="KQTDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_BOPHAN" Association="QLNSModel.FK_NHANVIEN_BOPHAN">
+      <End Role="BOPHAN" EntitySet="BOPHANs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHONGBAN_BOPHAN" Association="QLNSModel.FK_PHONGBAN_BOPHAN">
+      <End Role="BOPHAN" EntitySet="BOPHANs" />
+      <End Role="PHONGBAN" EntitySet="PHONGBANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHAMCONG_NHANVIEN1" Association="QLNSModel.FK_CHAMCONG_NHANVIEN1">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="CHAMCONG" EntitySet="CHAMCONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KQTD_CHUCVU" Association="QLNSModel.FK_KQTD_CHUCVU">
+      <End Role="CHUCVU" EntitySet="CHUCVUs" />
+      <End Role="KQTD" EntitySet="KQTDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_CHUCVU" Association="QLNSModel.FK_NHANVIEN_CHUCVU">
+      <End Role="CHUCVU" EntitySet="CHUCVUs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOSOTD_DANTOC" Association="QLNSModel.FK_HOSOTD_DANTOC">
+      <End Role="DANTOC" EntitySet="DANTOCs" />
+      <End Role="HOSOTD" EntitySet="HOSOTDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_DANTOC" Association="QLNSModel.FK_NHANVIEN_DANTOC">
+      <End Role="DANTOC" EntitySet="DANTOCs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOPDONG_NHANVIEN" Association="QLNSModel.FK_HOPDONG_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="HOPDONG" EntitySet="HOPDONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUATRINHLENLUONG_HOPDONG" Association="QLNSModel.FK_QUATRINHLENLUONG_HOPDONG">
+      <End Role="HOPDONG" EntitySet="HOPDONGs" />
+      <End Role="QUATRINHLENLUONG" EntitySet="QUATRINHLENLUONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOSOTD_TONGIAO" Association="QLNSModel.FK_HOSOTD_TONGIAO">
+      <End Role="TONGIAO" EntitySet="TONGIAOs" />
+      <End Role="HOSOTD" EntitySet="HOSOTDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOSOTD_TRINHDO" Association="QLNSModel.FK_HOSOTD_TRINHDO">
+      <End Role="TRINHDO" EntitySet="TRINHDOes" />
+      <End Role="HOSOTD" EntitySet="HOSOTDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOSOTD_VITRITUYEN" Association="QLNSModel.FK_HOSOTD_VITRITUYEN">
+      <End Role="VITRITUYEN" EntitySet="VITRITUYENs" />
+      <End Role="HOSOTD" EntitySet="HOSOTDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KQTD_HOSOTD" Association="QLNSModel.FK_KQTD_HOSOTD">
+      <End Role="HOSOTD" EntitySet="HOSOTDs" />
+      <End Role="KQTD" EntitySet="KQTDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KHENTHUONG_NHANVIEN" Association="QLNSModel.FK_KHENTHUONG_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="KHENTHUONG" EntitySet="KHENTHUONGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KQTD_NHANVIEN" Association="QLNSModel.FK_KQTD_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="KQTD" EntitySet="KQTDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KQTD_PHONGBAN" Association="QLNSModel.FK_KQTD_PHONGBAN">
+      <End Role="PHONGBAN" EntitySet="PHONGBANs" />
+      <End Role="KQTD" EntitySet="KQTDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KYLUAT_NHANVIEN" Association="QLNSModel.FK_KYLUAT_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="KYLUAT" EntitySet="KYLUATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LUONG1_NHANVIEN1" Association="QLNSModel.FK_LUONG1_NHANVIEN1">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="LUONG1" EntitySet="LUONG1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_PHONGBAN" Association="QLNSModel.FK_NHANVIEN_PHONGBAN">
+      <End Role="PHONGBAN" EntitySet="PHONGBANs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_TONGIAO" Association="QLNSModel.FK_NHANVIEN_TONGIAO">
+      <End Role="TONGIAO" EntitySet="TONGIAOs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_TRINHDO" Association="QLNSModel.FK_NHANVIEN_TRINHDO">
+      <End Role="TRINHDO" EntitySet="TRINHDOes" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NV_PHUCAP_NHANVIEN" Association="QLNSModel.FK_NV_PHUCAP_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="NV_PHUCAP" EntitySet="NV_PHUCAP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QUATRINHCONGTAC_NHANVIEN1" Association="QLNSModel.FK_QUATRINHCONGTAC_NHANVIEN1">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="QUATRINHCONGTAC" EntitySet="QUATRINHCONGTACs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaiKhoan_NHANVIEN" Association="QLNSModel.FK_TaiKhoan_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THOIVIEC_NHANVIEN" Association="QLNSModel.FK_THOIVIEC_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="THOIVIEC" EntitySet="THOIVIECs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NV_PHUCAP_PHUCAP" Association="QLNSModel.FK_NV_PHUCAP_PHUCAP">
+      <End Role="PHUCAP" EntitySet="PHUCAPs" />
+      <End Role="NV_PHUCAP" EntitySet="NV_PHUCAP" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BANGCONG">
+    <Key>
+      <PropertyRef Name="MAC" />
+    </Key>
+    <Property Name="MAC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANV" Type="Int32" />
+    <Property Name="NAM" Type="Int32" />
+    <Property Name="THANG" Type="Int32" />
+    <Property Name="CONGLE" Type="Int32" />
+    <Property Name="NGHICP" Type="Int32" />
+    <Property Name="NGHIKP" Type="Int32" />
+    <Property Name="CONGTHUONG" Type="Int32" />
+    <Property Name="CONGCN" Type="Int32" />
+    <Property Name="TONGC" Type="Int32" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_BANGCONG_NHANVIEN" FromRole="BANGCONG" ToRole="NHANVIEN" />
+    <NavigationProperty Name="LUONG1" Relationship="QLNSModel.FK_LUONG1_BANGCONG" FromRole="BANGCONG" ToRole="LUONG1" />
+  </EntityType>
+  <EntityType Name="BAOHIEM">
+    <Key>
+      <PropertyRef Name="MABH" />
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MABH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANV" Type="Int32" Nullable="false" />
+    <Property Name="SOBH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYCAP" Type="DateTime" Precision="0" />
+    <Property Name="NOICAP" Type="DateTime" Precision="0" />
+    <Property Name="NOIDKKHAMBENH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_BAOHIEM_NHANVIEN" FromRole="BAOHIEM" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="BOPHAN">
+    <Key>
+      <PropertyRef Name="MABP" />
+    </Key>
+    <Property Name="MABP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENBP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KQTDs" Relationship="QLNSModel.FK_KQTD_BOPHAN" FromRole="BOPHAN" ToRole="KQTD" />
+    <NavigationProperty Name="NHANVIENs" Relationship="QLNSModel.FK_NHANVIEN_BOPHAN" FromRole="BOPHAN" ToRole="NHANVIEN" />
+    <NavigationProperty Name="PHONGBANs" Relationship="QLNSModel.FK_PHONGBAN_BOPHAN" FromRole="BOPHAN" ToRole="PHONGBAN" />
+  </EntityType>
+  <EntityType Name="CHAMCONG">
+    <Key>
+      <PropertyRef Name="MACC" />
+    </Key>
+    <Property Name="MACC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANV" Type="Int32" />
+    <Property Name="NAM" Type="Int32" />
+    <Property Name="THANG" Type="Int32" />
+    <Property Name="D1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D6" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D7" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D8" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D9" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D10" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D11" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D12" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D13" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D14" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D15" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D16" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D17" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D18" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D19" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D20" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D21" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D22" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D23" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D24" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D25" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D26" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D27" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D28" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D29" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D30" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="D31" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CONGCN" Type="Int32" />
+    <Property Name="CONGLE" Type="Int32" />
+    <Property Name="CONGTHUONG" Type="Int32" />
+    <Property Name="NGHICP" Type="Int32" />
+    <Property Name="NGHIKP" Type="Int32" />
+    <Property Name="TONGC" Type="Int32" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_CHAMCONG_NHANVIEN1" FromRole="CHAMCONG" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MACV" />
+    </Key>
+    <Property Name="MACV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENCV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KQTDs" Relationship="QLNSModel.FK_KQTD_CHUCVU" FromRole="CHUCVU" ToRole="KQTD" />
+    <NavigationProperty Name="NHANVIENs" Relationship="QLNSModel.FK_NHANVIEN_CHUCVU" FromRole="CHUCVU" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="DANTOC">
+    <Key>
+      <PropertyRef Name="MADT" />
+    </Key>
+    <Property Name="MADT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOSOTDs" Relationship="QLNSModel.FK_HOSOTD_DANTOC" FromRole="DANTOC" ToRole="HOSOTD" />
+    <NavigationProperty Name="NHANVIENs" Relationship="QLNSModel.FK_NHANVIEN_DANTOC" FromRole="DANTOC" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="HESOLUONG">
+    <Key>
+      <PropertyRef Name="MAHSL" />
+    </Key>
+    <Property Name="MAHSL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HSLUONG" Type="Double" />
+  </EntityType>
+  <EntityType Name="HOPDONG">
+    <Key>
+      <PropertyRef Name="MAHD" />
+    </Key>
+    <Property Name="MAHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANV" Type="Int32" Nullable="false" />
+    <Property Name="LOAIHD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TUNGAY" Type="DateTime" Precision="0" />
+    <Property Name="DENNGAY" Type="DateTime" Precision="0" />
+    <Property Name="TGLV" Type="DateTime" Precision="0" />
+    <Property Name="NGAYKY" Type="DateTime" Precision="0" />
+    <Property Name="HESOLUONG" Type="Double" />
+    <Property Name="LUONGCB" Type="Double" />
+    <Property Name="PHUCAP" Type="Double" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_HOPDONG_NHANVIEN" FromRole="HOPDONG" ToRole="NHANVIEN" />
+    <NavigationProperty Name="QUATRINHLENLUONGs" Relationship="QLNSModel.FK_QUATRINHLENLUONG_HOPDONG" FromRole="HOPDONG" ToRole="QUATRINHLENLUONG" />
+  </EntityType>
+  <EntityType Name="HOSOTD">
+    <Key>
+      <PropertyRef Name="MAHS" />
+    </Key>
+    <Property Name="MAHS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="3" />
+    <Property Name="CCCD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MADT" Type="Int32" />
+    <Property Name="MATG" Type="Int32" />
+    <Property Name="MATD" Type="Int32" />
+    <Property Name="MAVTTD" Type="Int32" />
+    <Property Name="NGAYTD" Type="DateTime" Precision="3" />
+    <Property Name="TRANGTHAI" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CVContent" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="FileCV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="Int32" />
+    <NavigationProperty Name="DANTOC" Relationship="QLNSModel.FK_HOSOTD_DANTOC" FromRole="HOSOTD" ToRole="DANTOC" />
+    <NavigationProperty Name="TONGIAO" Relationship="QLNSModel.FK_HOSOTD_TONGIAO" FromRole="HOSOTD" ToRole="TONGIAO" />
+    <NavigationProperty Name="TRINHDO" Relationship="QLNSModel.FK_HOSOTD_TRINHDO" FromRole="HOSOTD" ToRole="TRINHDO" />
+    <NavigationProperty Name="VITRITUYEN" Relationship="QLNSModel.FK_HOSOTD_VITRITUYEN" FromRole="HOSOTD" ToRole="VITRITUYEN" />
+    <NavigationProperty Name="KQTDs" Relationship="QLNSModel.FK_KQTD_HOSOTD" FromRole="HOSOTD" ToRole="KQTD" />
+  </EntityType>
+  <EntityType Name="KHENTHUONG">
+    <Key>
+      <PropertyRef Name="MAKTH" />
+    </Key>
+    <Property Name="MAKTH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANV" Type="Int32" Nullable="false" />
+    <Property Name="NGAYQUYETDINH" Type="DateTime" Precision="0" />
+    <Property Name="HINHTHUC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LYDO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NOIDUNG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LOAI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SOTIEN" Type="Double" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_KHENTHUONG_NHANVIEN" FromRole="KHENTHUONG" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="KQTD">
+    <Key>
+      <PropertyRef Name="MAKQTD" />
+    </Key>
+    <Property Name="MAKQTD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAHOSO" Type="Int32" />
+    <Property Name="MANV" Type="Int32" />
+    <Property Name="PHONGBAN" Type="Int32" />
+    <Property Name="NGAYTD" Type="DateTime" Precision="3" />
+    <Property Name="STATUS" Type="Int32" />
+    <Property Name="BOPHAN" Type="Int32" />
+    <Property Name="CHUCVU" Type="Int32" />
+    <NavigationProperty Name="BOPHAN1" Relationship="QLNSModel.FK_KQTD_BOPHAN" FromRole="KQTD" ToRole="BOPHAN" />
+    <NavigationProperty Name="CHUCVU1" Relationship="QLNSModel.FK_KQTD_CHUCVU" FromRole="KQTD" ToRole="CHUCVU" />
+    <NavigationProperty Name="HOSOTD" Relationship="QLNSModel.FK_KQTD_HOSOTD" FromRole="KQTD" ToRole="HOSOTD" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_KQTD_NHANVIEN" FromRole="KQTD" ToRole="NHANVIEN" />
+    <NavigationProperty Name="PHONGBAN1" Relationship="QLNSModel.FK_KQTD_PHONGBAN" FromRole="KQTD" ToRole="PHONGBAN" />
+  </EntityType>
+  <EntityType Name="KYLUAT">
+    <Key>
+      <PropertyRef Name="MAKL" />
+    </Key>
+    <Property Name="MAKL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANV" Type="Int32" />
+    <Property Name="NGAYKL" Type="DateTime" Precision="0" />
+    <Property Name="HINHTHUCKL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LYDOKL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NOIDUNG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LOAI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SOTIEN" Type="Double" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_KYLUAT_NHANVIEN" FromRole="KYLUAT" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="LUONG1">
+    <Key>
+      <PropertyRef Name="MAL" />
+    </Key>
+    <Property Name="MAL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANV" Type="Int32" />
+    <Property Name="HSL" Type="Double" />
+    <Property Name="LUONGCB" Type="Double" />
+    <Property Name="PHUCAP" Type="Double" />
+    <Property Name="TULUONG" Type="Double" />
+    <Property Name="TIENKB" Type="Double" />
+    <Property Name="TTIENKL" Type="Double" />
+    <Property Name="TONGLANH" Type="Double" />
+    <Property Name="MAC" Type="Int32" />
+    <Property Name="THANG" Type="Int32" />
+    <Property Name="NAM" Type="Int32" />
+    <NavigationProperty Name="BANGCONG" Relationship="QLNSModel.FK_LUONG1_BANGCONG" FromRole="LUONG1" ToRole="BANGCONG" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_LUONG1_NHANVIEN1" FromRole="LUONG1" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="NGUOIDUNG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diachi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HINHANH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+    <Property Name="MADT" Type="Int32" />
+    <Property Name="CCCD" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="DIACHI" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GIOITINH" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="DIENTHOAI" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="MAPB" Type="Int32" />
+    <Property Name="MABP" Type="Int32" />
+    <Property Name="MACV" Type="Int32" />
+    <Property Name="MATDHV" Type="Int32" />
+    <Property Name="MATG" Type="Int32" />
+    <NavigationProperty Name="BANGCONGs" Relationship="QLNSModel.FK_BANGCONG_NHANVIEN" FromRole="NHANVIEN" ToRole="BANGCONG" />
+    <NavigationProperty Name="BAOHIEMs" Relationship="QLNSModel.FK_BAOHIEM_NHANVIEN" FromRole="NHANVIEN" ToRole="BAOHIEM" />
+    <NavigationProperty Name="BOPHAN" Relationship="QLNSModel.FK_NHANVIEN_BOPHAN" FromRole="NHANVIEN" ToRole="BOPHAN" />
+    <NavigationProperty Name="CHAMCONGs" Relationship="QLNSModel.FK_CHAMCONG_NHANVIEN1" FromRole="NHANVIEN" ToRole="CHAMCONG" />
+    <NavigationProperty Name="CHUCVU" Relationship="QLNSModel.FK_NHANVIEN_CHUCVU" FromRole="NHANVIEN" ToRole="CHUCVU" />
+    <NavigationProperty Name="DANTOC" Relationship="QLNSModel.FK_NHANVIEN_DANTOC" FromRole="NHANVIEN" ToRole="DANTOC" />
+    <NavigationProperty Name="HOPDONGs" Relationship="QLNSModel.FK_HOPDONG_NHANVIEN" FromRole="NHANVIEN" ToRole="HOPDONG" />
+    <NavigationProperty Name="KHENTHUONGs" Relationship="QLNSModel.FK_KHENTHUONG_NHANVIEN" FromRole="NHANVIEN" ToRole="KHENTHUONG" />
+    <NavigationProperty Name="KQTDs" Relationship="QLNSModel.FK_KQTD_NHANVIEN" FromRole="NHANVIEN" ToRole="KQTD" />
+    <NavigationProperty Name="KYLUATs" Relationship="QLNSModel.FK_KYLUAT_NHANVIEN" FromRole="NHANVIEN" ToRole="KYLUAT" />
+    <NavigationProperty Name="LUONG1" Relationship="QLNSModel.FK_LUONG1_NHANVIEN1" FromRole="NHANVIEN" ToRole="LUONG1" />
+    <NavigationProperty Name="PHONGBAN" Relationship="QLNSModel.FK_NHANVIEN_PHONGBAN" FromRole="NHANVIEN" ToRole="PHONGBAN" />
+    <NavigationProperty Name="TONGIAO" Relationship="QLNSModel.FK_NHANVIEN_TONGIAO" FromRole="NHANVIEN" ToRole="TONGIAO" />
+    <NavigationProperty Name="TRINHDO" Relationship="QLNSModel.FK_NHANVIEN_TRINHDO" FromRole="NHANVIEN" ToRole="TRINHDO" />
+    <NavigationProperty Name="NV_PHUCAP" Relationship="QLNSModel.FK_NV_PHUCAP_NHANVIEN" FromRole="NHANVIEN" ToRole="NV_PHUCAP" />
+    <NavigationProperty Name="QUATRINHCONGTACs" Relationship="QLNSModel.FK_QUATRINHCONGTAC_NHANVIEN1" FromRole="NHANVIEN" ToRole="QUATRINHCONGTAC" />
+    <NavigationProperty Name="TaiKhoans" Relationship="QLNSModel.FK_TaiKhoan_NHANVIEN" FromRole="NHANVIEN" ToRole="TaiKhoan" />
+    <NavigationProperty Name="THOIVIECs" Relationship="QLNSModel.FK_THOIVIEC_NHANVIEN" FromRole="NHANVIEN" ToRole="THOIVIEC" />
+  </EntityType>
+  <EntityType Name="NV_PHUCAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANV" Type="Int32" />
+    <Property Name="IDPC" Type="Int32" />
+    <Property Name="NGAY" Type="DateTime" Precision="0" />
+    <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SOTIEN" Type="Double" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_NV_PHUCAP_NHANVIEN" FromRole="NV_PHUCAP" ToRole="NHANVIEN" />
+    <NavigationProperty Name="PHUCAP" Relationship="QLNSModel.FK_NV_PHUCAP_PHUCAP" FromRole="NV_PHUCAP" ToRole="PHUCAP" />
+  </EntityType>
+  <EntityType Name="PHONGBAN">
+    <Key>
+      <PropertyRef Name="MAPB" />
+    </Key>
+    <Property Name="MAPB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENPB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MABP" Type="Int32" />
+    <NavigationProperty Name="BOPHAN" Relationship="QLNSModel.FK_PHONGBAN_BOPHAN" FromRole="PHONGBAN" ToRole="BOPHAN" />
+    <NavigationProperty Name="KQTDs" Relationship="QLNSModel.FK_KQTD_PHONGBAN" FromRole="PHONGBAN" ToRole="KQTD" />
+    <NavigationProperty Name="NHANVIENs" Relationship="QLNSModel.FK_NHANVIEN_PHONGBAN" FromRole="PHONGBAN" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="PHUCAP">
+    <Key>
+      <PropertyRef Name="IDPC" />
+    </Key>
+    <Property Name="IDPC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENPC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SOTIEN" Type="Double" />
+    <NavigationProperty Name="NV_PHUCAP" Relationship="QLNSModel.FK_NV_PHUCAP_PHUCAP" FromRole="PHUCAP" ToRole="NV_PHUCAP" />
+  </EntityType>
+  <EntityType Name="QUATRINHCONGTAC">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANV" Type="Int32" Nullable="false" />
+    <Property Name="NGAYBD" Type="DateTime" Precision="3" />
+    <Property Name="NGAYKT" Type="DateTime" Precision="3" />
+    <Property Name="NOICT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CHUCVU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_QUATRINHCONGTAC_NHANVIEN1" FromRole="QUATRINHCONGTAC" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="QUATRINHLENLUONG">
+    <Key>
+      <PropertyRef Name="MAQD" />
+      <PropertyRef Name="MAHD" />
+    </Key>
+    <Property Name="MAQD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAHD" Type="Int32" Nullable="false" />
+    <Property Name="HESOLUONG_HIENTAI" Type="Double" />
+    <Property Name="HESOLUONG_MOI" Type="Double" />
+    <Property Name="NGAYKY" Type="DateTime" Precision="3" />
+    <Property Name="NGAYLENLUONG" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="HOPDONG" Relationship="QLNSModel.FK_QUATRINHLENLUONG_HOPDONG" FromRole="QUATRINHLENLUONG" ToRole="HOPDONG" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MANV" Type="Int32" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_TaiKhoan_NHANVIEN" FromRole="TaiKhoan" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="THOIVIEC">
+    <Key>
+      <PropertyRef Name="MANVIEC" />
+    </Key>
+    <Property Name="MANVIEC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MANV" Type="Int32" Nullable="false" />
+    <Property Name="NGAYNOPDON" Type="DateTime" Precision="0" />
+    <Property Name="NGAYTV" Type="DateTime" Precision="0" />
+    <Property Name="LYDOTV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="Int32" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLNSModel.FK_THOIVIEC_NHANVIEN" FromRole="THOIVIEC" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="TONGIAO">
+    <Key>
+      <PropertyRef Name="MATG" />
+    </Key>
+    <Property Name="MATG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOSOTDs" Relationship="QLNSModel.FK_HOSOTD_TONGIAO" FromRole="TONGIAO" ToRole="HOSOTD" />
+    <NavigationProperty Name="NHANVIENs" Relationship="QLNSModel.FK_NHANVIEN_TONGIAO" FromRole="TONGIAO" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="TRINHDO">
+    <Key>
+      <PropertyRef Name="MATDHV" />
+    </Key>
+    <Property Name="MATDHV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENTD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOSOTDs" Relationship="QLNSModel.FK_HOSOTD_TRINHDO" FromRole="TRINHDO" ToRole="HOSOTD" />
+    <NavigationProperty Name="NHANVIENs" Relationship="QLNSModel.FK_NHANVIEN_TRINHDO" FromRole="TRINHDO" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="VITRITUYEN">
+    <Key>
+      <PropertyRef Name="MAVTTD" />
+    </Key>
+    <Property Name="MAVTTD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENVTTD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="YEUCAU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NOIDUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LUONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOSOTDs" Relationship="QLNSModel.FK_HOSOTD_VITRITUYEN" FromRole="VITRITUYEN" ToRole="HOSOTD" />
+  </EntityType>
+  <Association Name="FK_BANGCONG_NHANVIEN">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+    <End Type="QLNSModel.BANGCONG" Role="BANGCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="BANGCONG">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LUONG1_BANGCONG">
+    <End Type="QLNSModel.BANGCONG" Role="BANGCONG" Multiplicity="0..1" />
+    <End Type="QLNSModel.LUONG1" Role="LUONG1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANGCONG">
+        <PropertyRef Name="MAC" />
+      </Principal>
+      <Dependent Role="LUONG1">
+        <PropertyRef Name="MAC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BAOHIEM_NHANVIEN">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="1" />
+    <End Type="QLNSModel.BAOHIEM" Role="BAOHIEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="BAOHIEM">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KQTD_BOPHAN">
+    <End Type="QLNSModel.BOPHAN" Role="BOPHAN" Multiplicity="0..1" />
+    <End Type="QLNSModel.KQTD" Role="KQTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOPHAN">
+        <PropertyRef Name="MABP" />
+      </Principal>
+      <Dependent Role="KQTD">
+        <PropertyRef Name="BOPHAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_BOPHAN">
+    <End Type="QLNSModel.BOPHAN" Role="BOPHAN" Multiplicity="0..1" />
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOPHAN">
+        <PropertyRef Name="MABP" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MABP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHONGBAN_BOPHAN">
+    <End Type="QLNSModel.BOPHAN" Role="BOPHAN" Multiplicity="0..1" />
+    <End Type="QLNSModel.PHONGBAN" Role="PHONGBAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOPHAN">
+        <PropertyRef Name="MABP" />
+      </Principal>
+      <Dependent Role="PHONGBAN">
+        <PropertyRef Name="MABP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHAMCONG_NHANVIEN1">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+    <End Type="QLNSModel.CHAMCONG" Role="CHAMCONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="CHAMCONG">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KQTD_CHUCVU">
+    <End Type="QLNSModel.CHUCVU" Role="CHUCVU" Multiplicity="0..1" />
+    <End Type="QLNSModel.KQTD" Role="KQTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACV" />
+      </Principal>
+      <Dependent Role="KQTD">
+        <PropertyRef Name="CHUCVU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_CHUCVU">
+    <End Type="QLNSModel.CHUCVU" Role="CHUCVU" Multiplicity="0..1" />
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACV" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MACV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOSOTD_DANTOC">
+    <End Type="QLNSModel.DANTOC" Role="DANTOC" Multiplicity="0..1" />
+    <End Type="QLNSModel.HOSOTD" Role="HOSOTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DANTOC">
+        <PropertyRef Name="MADT" />
+      </Principal>
+      <Dependent Role="HOSOTD">
+        <PropertyRef Name="MADT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_DANTOC">
+    <End Type="QLNSModel.DANTOC" Role="DANTOC" Multiplicity="0..1" />
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DANTOC">
+        <PropertyRef Name="MADT" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MADT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOPDONG_NHANVIEN">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="1" />
+    <End Type="QLNSModel.HOPDONG" Role="HOPDONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="HOPDONG">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUATRINHLENLUONG_HOPDONG">
+    <End Type="QLNSModel.HOPDONG" Role="HOPDONG" Multiplicity="1" />
+    <End Type="QLNSModel.QUATRINHLENLUONG" Role="QUATRINHLENLUONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOPDONG">
+        <PropertyRef Name="MAHD" />
+      </Principal>
+      <Dependent Role="QUATRINHLENLUONG">
+        <PropertyRef Name="MAHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOSOTD_TONGIAO">
+    <End Type="QLNSModel.TONGIAO" Role="TONGIAO" Multiplicity="0..1" />
+    <End Type="QLNSModel.HOSOTD" Role="HOSOTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TONGIAO">
+        <PropertyRef Name="MATG" />
+      </Principal>
+      <Dependent Role="HOSOTD">
+        <PropertyRef Name="MATG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOSOTD_TRINHDO">
+    <End Type="QLNSModel.TRINHDO" Role="TRINHDO" Multiplicity="0..1" />
+    <End Type="QLNSModel.HOSOTD" Role="HOSOTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRINHDO">
+        <PropertyRef Name="MATDHV" />
+      </Principal>
+      <Dependent Role="HOSOTD">
+        <PropertyRef Name="MATD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOSOTD_VITRITUYEN">
+    <End Type="QLNSModel.VITRITUYEN" Role="VITRITUYEN" Multiplicity="0..1" />
+    <End Type="QLNSModel.HOSOTD" Role="HOSOTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VITRITUYEN">
+        <PropertyRef Name="MAVTTD" />
+      </Principal>
+      <Dependent Role="HOSOTD">
+        <PropertyRef Name="MAVTTD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KQTD_HOSOTD">
+    <End Type="QLNSModel.HOSOTD" Role="HOSOTD" Multiplicity="0..1" />
+    <End Type="QLNSModel.KQTD" Role="KQTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOSOTD">
+        <PropertyRef Name="MAHS" />
+      </Principal>
+      <Dependent Role="KQTD">
+        <PropertyRef Name="MAHOSO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KHENTHUONG_NHANVIEN">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="1" />
+    <End Type="QLNSModel.KHENTHUONG" Role="KHENTHUONG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="KHENTHUONG">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KQTD_NHANVIEN">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+    <End Type="QLNSModel.KQTD" Role="KQTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="KQTD">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KQTD_PHONGBAN">
+    <End Type="QLNSModel.PHONGBAN" Role="PHONGBAN" Multiplicity="0..1" />
+    <End Type="QLNSModel.KQTD" Role="KQTD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGBAN">
+        <PropertyRef Name="MAPB" />
+      </Principal>
+      <Dependent Role="KQTD">
+        <PropertyRef Name="PHONGBAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KYLUAT_NHANVIEN">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+    <End Type="QLNSModel.KYLUAT" Role="KYLUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="KYLUAT">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LUONG1_NHANVIEN1">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+    <End Type="QLNSModel.LUONG1" Role="LUONG1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="LUONG1">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_PHONGBAN">
+    <End Type="QLNSModel.PHONGBAN" Role="PHONGBAN" Multiplicity="0..1" />
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHONGBAN">
+        <PropertyRef Name="MAPB" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MAPB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_TONGIAO">
+    <End Type="QLNSModel.TONGIAO" Role="TONGIAO" Multiplicity="0..1" />
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TONGIAO">
+        <PropertyRef Name="MATG" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MATG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_TRINHDO">
+    <End Type="QLNSModel.TRINHDO" Role="TRINHDO" Multiplicity="0..1" />
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRINHDO">
+        <PropertyRef Name="MATDHV" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MATDHV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NV_PHUCAP_NHANVIEN">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+    <End Type="QLNSModel.NV_PHUCAP" Role="NV_PHUCAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="NV_PHUCAP">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QUATRINHCONGTAC_NHANVIEN1">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="1" />
+    <End Type="QLNSModel.QUATRINHCONGTAC" Role="QUATRINHCONGTAC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="QUATRINHCONGTAC">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaiKhoan_NHANVIEN">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+    <End Type="QLNSModel.TaiKhoan" Role="TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="TaiKhoan">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THOIVIEC_NHANVIEN">
+    <End Type="QLNSModel.NHANVIEN" Role="NHANVIEN" Multiplicity="1" />
+    <End Type="QLNSModel.THOIVIEC" Role="THOIVIEC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="THOIVIEC">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NV_PHUCAP_PHUCAP">
+    <End Type="QLNSModel.PHUCAP" Role="PHUCAP" Multiplicity="0..1" />
+    <End Type="QLNSModel.NV_PHUCAP" Role="NV_PHUCAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHUCAP">
+        <PropertyRef Name="IDPC" />
+      </Principal>
+      <Dependent Role="NV_PHUCAP">
+        <PropertyRef Name="IDPC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
